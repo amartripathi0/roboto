@@ -15,6 +15,7 @@ import OrbitingCircles from "@/components/magicui/orbiting-circles";
 import HeadPara from "@/components/HeadPara";
 import MainHeading from "@/components/MainHeading";
 import PageHeading from "@/components/PageHeading";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -31,16 +32,24 @@ export default function Home() {
           </HeadPara>
 
           <div className="flex gap-3">
-            <Button
-              additionalStyles="text-white bg-purple-500"
-              whiteArrow={true}
-              label="Get the app"
-            />
-            <Button
-              additionalStyles="text-white border-white"
-              label="Join a talk"
-              whiteArrow={true}
-            />
+            <Link
+              href={'/app'}>
+              <Button
+                additionalStyles="text-white bg-purple-500"
+                whiteArrow={true}
+                label="Get the app"
+              />
+            </Link>
+            <Link
+              href={'#footer'}
+              scroll={true}
+            >
+              <Button
+                additionalStyles="text-white border-white"
+                label="Join a talk"
+                whiteArrow={true}
+              />
+            </Link>
           </div>
         </div>
         <Image
@@ -79,7 +88,10 @@ export default function Home() {
           }
         </div>
 
-        <Button label="Listen to more" />
+        <Link
+          href={'/app'}>
+          <Button label="Listen to more" />
+        </Link>
       </div>
 
       {/* 3rd page */}
@@ -113,14 +125,19 @@ export default function Home() {
           <HeadPara>
             Join our AI Talk platform for exclusive insights on AI&apos;s impact. Unlock membership for a deeper dive into the world of artificial intelligence.
           </HeadPara>
-          <Button
-            label="Join now"
-          />
+
+          <Link
+            href={'/app'}
+          >
+            <Button
+              label="Join now"
+            />
+          </Link>
         </div>
       </div>
 
       {/* 4th page */}
-      <div className="relative h-[492px] bg-[#190E26] flex justify-center items-center text-white text-center">
+      <div id="footer" className="relative h-[492px] bg-[#190E26] flex justify-center items-center text-white text-center">
         <Image
           src={dotsImg}
           alt="dots-image"
@@ -134,11 +151,14 @@ export default function Home() {
           </MainHeading>
           <p className="font-normal text-xl w-5/6 leading-7 -tracking-[2%]">
             Excited to have you speak at our event! Share your expertise and insights on AI&apos;s role in shaping the future. Let&apos;s make an impact together!</p>
-          <Button
-            additionalStyles="bg-white border-white"
-            label="Speak at our event"
-          />
-
+          <Link
+            href={'https://example.org'}
+            target="_blank">
+            <Button
+              additionalStyles="bg-white border-white"
+              label="Speak at our event"
+            />
+          </Link>
         </div>
       </div>
     </main>
