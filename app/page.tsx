@@ -145,7 +145,7 @@ export default function Home() {
   );
 }
 
-export function OrbitingLogos() {
+function OrbitingLogos() {
   return (
     <div className="absolute flex h-[500px] w-full max-w-[32rem] items-center justify-center overflow-hidden">
 
