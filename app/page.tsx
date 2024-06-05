@@ -111,7 +111,7 @@ export default function Home() {
             Become a member
           </PageHeading>
           <HeadPara>
-            Join our AI Talk platform for exclusive insights on AI's impact. Unlock membership for a deeper dive into the world of artificial intelligence.
+            Join our AI Talk platform for exclusive insights on AI&apos;s impact. Unlock membership for a deeper dive into the world of artificial intelligence.
           </HeadPara>
           <Button
             label="Join now"
@@ -133,7 +133,7 @@ export default function Home() {
             Want to talk at our event?
           </MainHeading>
           <p className="font-normal text-xl w-5/6 leading-7 -tracking-[2%]">
-            Excited to have you speak at our event! Share your expertise and insights on AI's role in shaping the future. Let's make an impact together!</p>
+            Excited to have you speak at our event! Share your expertise and insights on AI&apos;s role in shaping the future. Let&apos;s make an impact together!</p>
           <Button
             additionalStyles="bg-white border-white"
             label="Speak at our event"
