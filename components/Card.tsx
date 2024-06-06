@@ -16,7 +16,7 @@ function Card({ cardImg, cardTitle, cardDesc }: CardProps) {
                     alt={"card-img"}
                     height={2000}
                     width={2000}
-                    className=' h-full w-full rounded-[32px]'
+                    className=' h-full w-full object-cover rounded-[32px]'
                 />
                 <div className="absolute top-0 left-0 rounded-[32px] bg-gradient-to-br from-[#180020] h-full w-full z-5  opacity-95"></div>
                 <h3 className='absolute bottom-0 font-bold text-2xl text-slate-50 m-6 font-vinila'>

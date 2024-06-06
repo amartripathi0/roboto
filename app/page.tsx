@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import heroImg from '../public/assets/image.png'
 import crossImg from '../public/assets/memberPage/cross.png'
@@ -16,8 +18,10 @@ import HeadPara from "@/components/HeadPara";
 import MainHeading from "@/components/MainHeading";
 import PageHeading from "@/components/PageHeading";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('London')
   return (
     <main className="min-h-screen w-full bg-white">
 
@@ -55,6 +59,7 @@ export default function Home() {
         <Image
           src={heroImg}
           alt="hero-image"
+          priority={true}
           height={2000}
           width={2000}
           className="w-full h-full"
@@ -69,24 +74,36 @@ export default function Home() {
 
         {/* Tabs */}
         <div className="flex gap-[6px] items-center justify-between w-[368px]">
-          <Tab label="London" isActive />
-          <Tab label="Singapore" />
-          <Tab label="Los Angeles" />
-        </div>
-
-        {/* Cards */}
-        <div className="flex gap-10 h-[464px]">
           {
-            cardData.map(eachCard => (
-              <Card
-                key={eachCard.cardTitle}
-                cardTitle={eachCard.cardTitle}
-                cardImg={eachCard.cardImg}
-                cardDesc={eachCard.cardDescription}
+            cardData.map(eachCardTab => (
+              <Tab
+                key={eachCardTab.tabName}
+                label={eachCardTab.tabName}
+                setActiveTab={setActiveTab}
+                isActive={activeTab === eachCardTab.tabName}
               />
             ))
           }
         </div>
+
+        {/* Cards */}
+        <div className="flex gap-10 h-[464px]">
+          {cardData
+            .filter(eachCardsTab => eachCardsTab.tabName === activeTab)
+            .map(tab =>
+              tab.data.map(eachCard => (
+                <Card
+                  key={eachCard.cardTitle}
+                  cardTitle={eachCard.cardTitle}
+                  cardImg={eachCard.cardImg}
+                  cardDesc={eachCard.cardDescription}
+                />
+              ))
+            )
+          }
+        </div>
+
+
 
         <Link
           href={'/app'}>
@@ -168,24 +185,28 @@ export default function Home() {
 function OrbitingLogos() {
   return (
     <div className="absolute flex h-[500px] w-full max-w-[32rem] items-center justify-center overflow-hidden">
+      <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-[2%]">
+        <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-[3%]">
 
-      <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-5">
+          <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-5">
 
-        <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-10">
+            <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-10">
 
-          <div className="border-2 border-[#FF00A8] rounded-full p-8  border-opacity-20">
+              <div className="border-2 border-[#FF00A8] rounded-full p-8  border-opacity-20">
 
-            <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-50">
-              <div
-                className="h-20 w-20 rounded-full p-3  bg-gradient-to-t from-[#663399] via-[#FF53F8] to-[#FF00A8] border-t-4 border-l-2 "
-              >
-                <Image
-                  src={plus}
-                  alt="plus-image"
-                  height={2000}
-                  width={2000}
-                  className="w-full h-full rounded-full"
-                />
+                <div className="border-2 border-[#FF00A8] rounded-full p-8 border-opacity-50">
+                  <div
+                    className="h-20 w-20 rounded-full p-3  bg-gradient-to-t from-[#663399] via-[#FF53F8] to-[#FF00A8] border-t-4 border-l-2 "
+                  >
+                    <Image
+                      src={plus}
+                      alt="plus-image"
+                      height={2000}
+                      width={2000}
+                      className="w-full h-full rounded-full"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
